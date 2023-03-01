@@ -54,7 +54,7 @@
             }
             var ary;
             $scope.fetchrecord = function (email, index) {
-                alert(email + " " + index);
+                //alert(email + " " + index);
                 var url = "/getrecord?email=" + email;
                 $http.get(url).then(Good, Bad);
                 function Good(jsonResponse) {
