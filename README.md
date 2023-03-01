@@ -11,10 +11,15 @@ Platform features a user-friendly interface that allows users to easily create a
 key features:
 
 User authentication system for secure login and registration
+
 Ability for workers to create a profile that showcases their skills and experience
+
 Ability for customers to search for workers based on their skills and location
+
 Ability for both workers and customers to post listings to find work or find workers
+
 Easy search and filter options to quickly find specific listings
+
 
 Technologies used:
 
