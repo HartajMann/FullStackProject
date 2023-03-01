@@ -11,8 +11,8 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
     <script>
-        $(document).ready(function(){
-            document.getElementById("inputEmail").value=localStorage.getItem("name");
+        $(document).ready(function () {
+            document.getElementById("inputEmail").value = localStorage.getItem("name");
         })
     </script>
     <script>
@@ -47,7 +47,7 @@
                 eer.innerHTML = "Invalid!";
             }
         }
-        function dovalcity(city,eer) {
+        function dovalcity(city, eer) {
             if (city.value != "") {
                 city.style.border = "2px solid green";
                 eer.innerHTML = "Looks Good!";
@@ -67,7 +67,7 @@
                 eer.innerHTML = "Invalid!";
             }
         }
-        
+
     </script>
 </head>
 
@@ -75,13 +75,11 @@
     <form method="post" enctype="multipart/form-data">
         <div id="body" class="container bg-light">
             <div class="row bg-info">
-                <div class="col-md-12">
-                    <center>
-                        <h2 style="font-family:Georgia, 'Times New Roman', Times, serif;">Post Request</h2>
-                    </center>
+                <div class="col-md-12 text-center">
+                    <h2 style="font-family:Georgia, 'Times New Roman', Times, serif;">Post Request</h2>
                 </div>
             </div>
-            <div class="row mt-2 gx-5">
+            <div class="row mt-2 gx-md-5">
                 <div class="col-md-12">
                     <label for="inputEmail" class="form-label"
                         style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Email</label>
@@ -94,7 +92,7 @@
                 <div class="col-md-6">
                     <label for="inputcate" class="form-label"
                         style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Category</label>
-                        <input class="form-control" list="datalistOptions" id="inputcate" name="inputcate"
+                    <input class="form-control" list="datalistOptions" id="inputcate" name="inputcate"
                         placeholder="Type to search..." onblur="dovalcate(this,eerNa)">
                     <datalist id="datalistOptions">
                         <option value="Plumber">
@@ -110,38 +108,38 @@
                 <div class="col-md-12">
                     <label for="inputwhat" class="form-label"
                         style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">What</label>
-                    <input type="text" class="form-control" id="inputwhat" placeholder="Type of work"
-                        name="inputwhat" required onblur="dovalwhat(this,erra)">
+                    <input type="text" class="form-control" id="inputwhat" placeholder="Type of work" name="inputwhat"
+                        required onblur="dovalwhat(this,erra)">
                     <span id="erra"></span>
                 </div>
             </div>
             <div class="row mt-2">
-                    <div class="col-md-6">
-                        <label for="inputCity" class="form-label"
-                            style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">City</label>
-                        <input class="form-control" list="datalistOption" id="inputCity" name="inputCity" onblur="dovalcity(this,errc)"
-                            placeholder="Type to search...">
-                        <datalist id="datalistOption">
-                            <option value="Bathinda">
-                            <option value="Jaipur">
-                            <option value="Chandigarh">
-                            <option value="Delhi">
-                            <option value="Jalandhar">
-                        </datalist>
-                        <span id="errc"></span>
-                    </div>
                 <div class="col-md-6">
+                    <label for="inputCity" class="form-label"
+                        style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">City</label>
+                    <input class="form-control" list="datalistOption" id="inputCity" name="inputCity"
+                        onblur="dovalcity(this,errc)" placeholder="Type to search...">
+                    <datalist id="datalistOption">
+                        <option value="Bathinda">
+                        <option value="Jaipur">
+                        <option value="Chandigarh">
+                        <option value="Delhi">
+                        <option value="Jalandhar">
+                    </datalist>
+                    <span id="errc"></span>
+                </div>
+                <div class="col-md-6 mt-2 mt-md-0">
                     <label for="inputdate" class="form-label"
                         style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Upto Date</label>
-                        <input type="date" class="form-control" id="inputdate" name="inputdate" required
-                        onblur="dovaldate(this,eerz)">             
+                    <input type="date" class="form-control" id="inputdate" name="inputdate" required
+                        onblur="dovaldate(this,eerz)">
                     <span id="eerz"></span>
                 </div>
             </div>
             <div class="row mt-3 justify-content-center" style="padding-bottom: 10px;">
-                <div class="col-md-1 ">
-                    <button type="submit" formaction="/postprocess" class="btn btn-outline-primary"
-                        style="width: 150px;">Post Request</button>
+                <div class="col-md-4 col-lg-3">
+                    <button type="submit" formaction="/postprocess" class="btn btn-outline-primary w-100">Post
+                        Request</button>
                 </div>
             </div>
         </div>
