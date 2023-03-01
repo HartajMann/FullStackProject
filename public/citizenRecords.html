@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        citizenRecords
+    </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+        <script src="js/angular.min.js"></script>
+        <script>
+            var mymodule=angular.module("myownmodule",[]);
+            var mycontroller=mymodule.controller("mycontroller1",function($scope,$http){
+                $scope.jasonAry;
+                $scope.dofetch=function(){
+                    var url="/showAll?x="+$scope.selecteditem;
+                    $http.get(url).then(Good,Bad);
+                    function Good(response){
+                        //alert(JSON.stringify(response.data));
+                        $scope.jasonAry=response.data;
+                    }
+                    function Bad(response){
+                        alert(JSON.stringify(response.data));
+                    }
+                }
+                $scope.doDelete=function(email){
+                    if(confirm("Are You Sure")==false)
+                    return;
+                    var url="/deleteprofile?x="+email;
+                    $http.get(url).then(good,bad);
+                    function good(response){
+                        alert(JSON.stringify(response.data));
+                        $scope.dofetch();
+                    }
+                    function bad(response)
+                    {
+                        alert(JSON.stringify(response.data));
+                    }
+                }
+                $scope.jasonArystate;
+                $scope.dofetchstate=function()
+                {
+                    var url="/fetchstate";
+                    $http.get(url).then(good,bad);
+                    function good(response)
+                    {
+                        $scope.jasonArystate=response.data;
+                    }
+                    function bad(response)
+                    {
+                        alert(JSON.stringify(response.data));
+                    }
+                }
+                //$scope.selecteditem=$scope.jasonArystate[0].state;
+            })
+        </script>
+</head>
+
+<body ng-app="myownmodule" ng-controller="mycontroller1" ng-init="dofetchstate();">
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;height: 60px">
+        <div
+            style="font-size: xx-large;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;margin: auto;">
+            Citizens Records
+        </div>
+    </nav>
+    <div style="margin-top: 100px;">
+        <center>
+            <select ng-model="selecteditem" >
+                <option ng-repeat="obj in jasonArystate" value="{{obj.state}}">{{obj.state}}</option>
+            </select>
+            <br><br>
+            <input type="button" value="Fetch" style="width: 100px;" ng-click="dofetch();">
+            <br><br>
+            <table width="1100px" border="1">
+                <tr ng-repeat="obj in jasonAry">
+                    <td>{{$index+1}}</td>
+                    <td>{{obj.email}}</td>
+                    <td>{{obj.name}}</td>
+                    <td>{{obj.number}}</td>
+                    <td>{{obj.address}}</td>
+                    <td>{{obj.city}}</td>
+                    <td>{{obj.state}}</td>
+                    <td>{{obj.zip}}</td>
+                    <td align="center"><img src="uploads/{{obj.profilepic}}" width="50" height="50" alt=""></td>
+                    <td>{{obj.profilepic}}</td>
+                    <td align="center">
+                        <input type="button" value="Delete" ng-click="doDelete(obj.email);">
+                    </td>
+                </tr>
+            </table>
+        </center>
+    </div>
+</body>
+
+</html>

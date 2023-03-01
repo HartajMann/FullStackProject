@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="js/jquery-1.8.2.min.js"></script>
+    <script>
+        var flag=false;
+        checkuser();
+        function checkuser()
+        {
+            if(localStorage.getItem("name")==null)
+            location.href="index.html";
+        }
+        $(document).ready(function () {
+            document.getElementById("username").innerHTML=localStorage.getItem("name");
+            $("#txtEmail").blur(function () {
+                var r = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                if ($("#txtEmail").val() == "") {
+                    document.getElementById("errEm").innerHTML = "Inavlid!";
+                    $("#txtEmail").addClass("not-ok").removeClass("ok");
+                    return;
+                }
+                else
+                    if (r.test($("#txtEmail").val()) == false) {
+                        $("#txtEmail").addClass("not-ok").removeClass("ok");
+                        document.getElementById("errEm").innerHTML = "Inavlid!";
+                        return;
+                    }
+                    else {
+                        $("#txtEmail").addClass("ok").removeClass("not-ok");
+                        document.getElementById("errEm").innerHTML = "Looks Good!";
+                    }
+            });
+            $("#txtPassword").blur(function () {
+                var r = /(?=^.{8,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/;
+                if ($("#txtPassword").val() == "") {
+                    document.getElementById("errPa").innerHTML = "Invalid!";
+                    $("#txtPassword").addClass("not-ok").removeClass("ok");
+                    return;
+                }
+                else
+                    if (r.test($("#txtPassword").val()) == false) {
+                        $("#txtPassword").addClass("not-ok").removeClass("ok");
+                        document.getElementById("errPa").innerHTML = "Invalid!";
+                        return;
+                    }
+                    else {
+                        $("#txtPassword").addClass("ok").removeClass("not-ok");
+                        document.getElementById("errPa").innerHTML = "Looks Good!";
+                    }
+            });
+            $("#newpwd").blur(function () {
+                var r = /(?=^.{8,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/;
+                if ($("#newpwd").val() == "") {
+                    document.getElementById("errP").innerHTML = "Invalid!";
+                    $("#newpwd").addClass("not-ok").removeClass("ok");
+                    flag=false;
+                    return;
+                }
+                else
+                    if (r.test($("#newpwd").val()) == false) {
+                        $("#newpwd").addClass("not-ok").removeClass("ok");
+                        document.getElementById("errP").innerHTML = "Invalid!";
+                        flag=false;
+                        return;
+                    }
+                    else {
+                        $("#newpwd").addClass("ok").removeClass("not-ok");
+                        document.getElementById("errP").innerHTML = "Looks Good!";
+                        flag=true;
+                    }
+            });
+            $("#btnupdate").click(function () {
+                var urldata = "/getemail?txtemail=" + $("#txtEmail").val() + "&txtpwd=" + $("#txtPassword").val();
+                $.get(urldata, function (response) {
+                    var pass = document.getElementById("txtPassword");
+                    var email = document.getElementById("txtEmail");
+                    if (email.value == response[0].email && pass.value == response[0].pwd) {
+                        document.getElementById("frm").action="/settingprocess";
+                        document.frm.submit();
+                        document.getElementById("btnprob").innerHTML="";
+                        flag=true;
+                        return;
+                    }
+                })
+                if(flag==false)
+                {
+                    document.getElementById("btnprob").innerHTML="Fill Valid Data plz";
+                }
+            });
+            $("#btnlogout").click(function(){
+                localStorage.clear();
+                location.href="index.html";
+            })
+        });
+    </script>
+    <title>Citizen Dashboard</title>
+    <style>
+        .not-ok {
+            border: 2px red solid;
+        }
+
+        .ok {
+            border: 2px green solid;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;height: 60px">
+        <div
+            style="font-size: xx-large;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;margin: auto;">
+            Welcome:<span id="username"></span>
+        </div>
+    </nav>
+    <div class="container bg-light" style="height:230px;">
+        <div class="row  mt-4 justify-content-center ">
+            <div class="col-md-2" style="margin-right: 20px;" >
+                <div class="card" style="height: 230px;">
+                    <img src="pics/profile+account+connection-1320568502078382520_512.png"
+                        class="card-img-top" alt="..."
+                        style="width:120px ; height: 120px; margin: auto; margin-top: 10px;">
+                    <div class="card-body">
+                        <a href="profile-citizens.html" class="btn btn-dark"
+                            style="width: 120px; margin-left:20px; margin-top: 20px;">Profile</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2" style="margin-right: 20px;">
+                <div class="card" style="height: 230px;">
+                    <img src="pics/edit+pencil+post+icon-1320166592711956016_512.png"
+                        style="width:120px ; height: 120px; margin: auto; margin-top: 12px;" class="card-img-top"
+                        alt="...">
+                    <div class="card-body">
+                        <a href="post-req.html" class="btn btn-dark"
+                            style="width: 120px; margin-left:20px; margin-top: 20px;">Post Request</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2" style="margin-right: 20px;">
+                <div class="card" style="height: 230px;">
+                    <img src="pics/find+magnifier+search+seo+view+zoom+icon-1320195732532253181_512.png"
+                        style="width:120px ; height: 120px; margin: auto; margin-top: 12px;" class="card-img-top"
+                        alt="...">
+                    <div class="card-body">
+                        <a href="workerfinder.html" class="btn btn-dark"
+                            style="width: 120px; margin-left:20px; margin-top: 20px;">Find Worker</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2" style="margin-right: 20px;">
+                <div class="card" style="height: 230px;">
+                    <img src="pics/google+optimization+repair+setting+support+icon-1320183405083998051_512.png"
+                        class="card-img-top" alt="..."
+                        style="width:120px ; height: 120px; margin: auto; margin-top: 10px;">
+                    <div class="card-body">
+                        <button type="button" class="btn btn-dark"
+                            style="width: 120px; margin-left:20px; margin-top: 20px;" data-bs-toggle="modal"
+                            data-bs-target="#settingsModal">
+                            Settings
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 ">
+                <div class="card" style="height: 230px;">
+                    <img src="pics/logout.png"
+                        class="card-img-top" alt="..."
+                        style="width:120px ; height: 110px; margin: auto; margin-top: 20px;">
+                    <div class="card-body">
+                        <input type="button" id="btnlogout" class="btn btn-dark" value="Logout" style="width: 120px; margin-left:20px; margin-top: 20px;">    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Settings</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" name="frm" id="frm">
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="txtEmail" name="txtEmail"
+                                placeholder="name@example.com">
+                            <label for="txtEmail">Email address</label>
+                            <span id="errEm"></span>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control" id="txtPassword" placeholder="Password">
+                            <label for="txtPassword">Enter Existing Password</label>
+                            <span id="errPa"></span>
+                        </div>
+                        <div class="form-floating">
+                            <input type="password" class="form-control" id="newpwd" name="newpwd"
+                                placeholder="Password">
+                            <label for="newpwd">Enter New Password</label>
+                            <span id="errP"></span>
+                        </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <input type="button" value="Save changes" id="btnupdate"
+                        class="btn btn-primary">
+                     <span id="btnprob"></span>   
+                </div>
+            </div>
+        </div>
+        </form>
+    </div>
+</body>
+
+</html>
