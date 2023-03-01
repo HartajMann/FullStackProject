@@ -49,6 +49,7 @@ app.post("/signupprocess", (req, resp) => {
         }
         else {
             console.log("task completed");
+            resp.redirect("/redirect_profilepage.html");
         }
     })
     var transporter = nodemailer.createTransport({
