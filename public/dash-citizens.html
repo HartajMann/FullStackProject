@@ -114,68 +114,75 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-light bg-light navbar-expand-md" style="height: 60px">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#"
-                style="font-size: xx-large;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;text-align: center;">Welcome:<span
-                    id="username"></span></a>
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;height: 60px">
+        <div
+            style="font-size: xx-large;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;margin: auto;">
+            Welcome:<span id="username"></span>
         </div>
     </nav>
-    <div class="container bg-light mt-4" style="height:230px;">
-        <div class="row justify-content-center align-items-center h-100">
-            <div class="col-md-2 mb-4 mb-md-0">
-                <div class="card h-100">
-                    <img src="pics/profile+account+connection-1320568502078382520_512.png" class="card-img-top"
-                        alt="..." style="width:120px; height:120px; margin:auto; margin-top:10px;">
+    <div class="container bg-light" style="height:230px;">
+        <div class="row  mt-4 justify-content-center ">
+            <div class="col-md-2" style="margin-right: 20px;" >
+                <div class="card" style="height: 230px;">
+                    <img src="pics/profile+account+connection-1320568502078382520_512.png"
+                        class="card-img-top" alt="..."
+                        style="width:120px ; height: 120px; margin: auto; margin-top: 10px;">
                     <div class="card-body">
-                        <a href="profile-citizens.html" class="btn btn-dark w-100">Profile</a>
+                        <a href="profile-citizens.html" class="btn btn-dark"
+                            style="width: 120px; margin-left:20px; margin-top: 20px;">Profile</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-2 mb-4 mb-md-0">
-                <div class="card h-100">
-                    <img src="pics/edit+pencil+post+icon-1320166592711956016_512.png" class="card-img-top" alt="..."
-                        style="width:120px; height:120px; margin:auto; margin-top:12px;">
+            <div class="col-md-2" style="margin-right: 20px;">
+                <div class="card" style="height: 230px;">
+                    <img src="pics/edit+pencil+post+icon-1320166592711956016_512.png"
+                        style="width:120px ; height: 120px; margin: auto; margin-top: 12px;" class="card-img-top"
+                        alt="...">
                     <div class="card-body">
-                        <a href="post-req.html" class="btn btn-dark w-100">Post Request</a>
+                        <a href="post-req.html" class="btn btn-dark"
+                            style="width: 120px; margin-left:20px; margin-top: 20px;">Post Request</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-2 mb-4 mb-md-0">
-                <div class="card h-100">
+            <div class="col-md-2" style="margin-right: 20px;">
+                <div class="card" style="height: 230px;">
                     <img src="pics/find+magnifier+search+seo+view+zoom+icon-1320195732532253181_512.png"
-                        class="card-img-top" alt="..." style="width:120px; height:120px; margin:auto; margin-top:12px;">
+                        style="width:120px ; height: 120px; margin: auto; margin-top: 12px;" class="card-img-top"
+                        alt="...">
                     <div class="card-body">
-                        <a href="workerfinder.html" class="btn btn-dark w-100">Find Worker</a>
+                        <a href="workerfinder.html" class="btn btn-dark"
+                            style="width: 120px; margin-left:20px; margin-top: 20px;">Find Worker</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-2 mb-4">
-                <div class="card h-100">
+            <div class="col-md-2" style="margin-right: 20px;">
+                <div class="card" style="height: 230px;">
                     <img src="pics/google+optimization+repair+setting+support+icon-1320183405083998051_512.png"
-                        class="card-img-top mx-auto d-block mt-3" alt="..." style="width:120px; height: 120px;">
-                    <div class="card-body text-center">
-                        <button type="button" class="btn btn-dark mt-3" style="width: 120px;" data-bs-toggle="modal"
-                            data-bs-target="#settingsModal">Settings</button>
+                        class="card-img-top" alt="..."
+                        style="width:120px ; height: 120px; margin: auto; margin-top: 10px;">
+                    <div class="card-body">
+                        <button type="button" class="btn btn-dark"
+                            style="width: 120px; margin-left:20px; margin-top: 20px;" data-bs-toggle="modal"
+                            data-bs-target="#settingsModal">
+                            Settings
+                        </button>
                     </div>
                 </div>
             </div>
-
-            <div class="col-md-2 mb-4">
-                <div class="card h-100">
-                    <img src="pics/logout.png" class="card-img-top mx-auto d-block mt-4" alt="..."
-                        style="width:120px; height: 110px;">
-                    <div class="card-body text-center">
-                        <input type="button" id="btnlogout" class="btn btn-dark mt-3" value="Logout"
-                            style="width: 120px;">
+            <div class="col-md-2 ">
+                <div class="card" style="height: 230px;">
+                    <img src="pics/logout.png"
+                        class="card-img-top" alt="..."
+                        style="width:120px ; height: 110px; margin: auto; margin-top: 20px;">
+                    <div class="card-body">
+                        <input type="button" id="btnlogout" class="btn btn-dark" value="Logout" style="width: 120px; margin-left:20px; margin-top: 20px;">    
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
     <div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Settings</h5>
@@ -200,25 +207,16 @@
                             <label for="newpwd">Enter New Password</label>
                             <span id="errP"></span>
                         </div>
-                    </form>
                 </div>
-                <div class="modal-footer">
-                    <div class="row justify-content-center">
-                        <div class="col-6 col-md-4">
-                            <button type="button" class="btn btn-primary w-100" id="btnupdate">Save changes</button>
-                        </div>
-                        <div class="col-6 col-md-4">
-                            <button type="button" class="btn btn-secondary w-100" data-bs-dismiss="modal">Close</button>
-                        </div>
-                        <div class="col-md-4">
-                            <span id="btnprob"></span>
-                        </div>
-                    </div>
+                <div class="modal-footer justify-content-center">
+                    <input type="button" value="Save changes" id="btnupdate"
+                        class="btn btn-primary">
+                     <span id="btnprob"></span>   
                 </div>
             </div>
         </div>
+        </form>
     </div>
-
 </body>
 
 </html>
