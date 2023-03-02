@@ -175,229 +175,213 @@
     }
   </style>
 </head>
-
 <body class="bg-light">
   <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Home</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-          <li class="nav-item" style="margin-right: 15px;">
-            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#signupmodal">
-              Sign-Up
-            </button>
-          </li>
-          <li class="nav-item">
-            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#loginmodal">
-              Login
-            </button>
-          </li>
-        </ul>
+      <div class="container-fluid">
+          <a class="navbar-brand" href="#">Home</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+              aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                  <li class="nav-item me-lg-3 mb-lg-0 mb-3">
+                      <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+                          data-bs-target="#signupmodal">
+                          Sign-Up
+                      </button>
+                  </li>
+                  <li class="nav-item">
+                      <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+                          data-bs-target="#loginmodal">
+                          Login
+                      </button>
+                  </li>
+              </ul>
+          </div>
       </div>
-    </div>
   </nav>
-  <div class="modal fade" id="signupmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <form method="post" name="frm" id="frm">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header" style="background-color:lightblue;">
-            <h5 class="modal-title" id="exampleModalLabel"
-              style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size: x-large;">Sign-Up
-            </h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" style="border: 1px black solid;"
-              aria-label="Close"></button>
-          </div>
-          <div class="modal-body" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
-            <div class="form-floating mb-3">
-              <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
-                name="inputemail" required>
-              <label for="floatingInput">Email address</label>
-              <span id="errE"></span>
-            </div>
-            <div class="form-floating mb-3">
-              <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="inputpwd"
-                required>
-              <label for="floatingPassword">Password</label>
-              <span id="errP"></span>
-            </div>
-            <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="floatingNumber" placeholder="Number" name="inputnumber"
-                required>
-              <label for="floatingNumber">Number</label>
-              <span id="errN"></span>
-            </div>
-            <div class="form-floating mb-1 " style="margin-left: 5px;">
-              <div style="font-size:large;">User Type</div>
-            </div>
-            <div class="form-floating" style="margin-left: 5px;">
-              <select name="inputuser" id="user" class="form-select" required>
-                <option value="choose" selected>Choose</option>
-                <option value="Citizen">Citizen</option>
-                <option value="Worker">Worker</option>
-              </select>
-              <span id="errS"></span>
-            </div>
 
+
+  <div class="modal fade" id="signupmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <form method="post" name="frm" id="frm">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header bg-light">
+                      <h5 class="modal-title"
+                          style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: x-large;"
+                          id="exampleModalLabel">Sign-Up</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body"
+                      style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+                      <div class="form-floating mb-3">
+                          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
+                              name="inputemail" required>
+                          <label for="floatingInput">Email address</label>
+                          <span id="errE"></span>
+                      </div>
+                      <div class="form-floating mb-3">
+                          <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
+                              name="inputpwd" required>
+                          <label for="floatingPassword">Password</label>
+                          <span id="errP"></span>
+                      </div>
+                      <div class="form-floating mb-3">
+                          <input type="text" class="form-control" id="floatingNumber" placeholder="Number"
+                              name="inputnumber" required>
+                          <label for="floatingNumber">Number</label>
+                          <span id="errN"></span>
+                      </div>
+                      <div class="form-floating mb-1">
+                          <div style="font-size:large;">User Type</div>
+                      </div>
+                      <div class="form-floating mb-3">
+                          <select name="inputuser" id="user" class="form-select" required>
+                              <option value="choose" selected>Choose</option>
+                              <option value="Citizen">Citizen</option>
+                              <option value="Worker">Worker</option>
+                          </select>
+                          <label for="user">User Type</label>
+                          <span id="errS"></span>
+                      </div>
+                  </div>
+                  <div class="modal-footer">
+                      <input type="button" id="btnsignup" value="Sign-Up" class="btn btn-primary"
+                          style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+                      <span id="errSub"></span>
+                  </div>
+              </div>
           </div>
-          <div class="modal-footer">
-            <input type="button" id="btnsignup" value="Sign-Up" class="btn btn-primary"
-              style="margin: auto;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
-            <span id="errSub"></span>
-          </div>
-        </div>
-      </div>
-    </form>
+      </form>
   </div>
+
   <div class="modal fade" id="loginmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <form method="post" name="frm2" id="frm2">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header" style="background-color: lightblue;">
-            <h5 class="modal-title" id="exampleModalLabel"
-              style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size: x-large;">Login
-            </h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" style="border: 1px black solid;"
-              aria-label="Close"></button>
+      <form method="post" name="frm2" id="frm2">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header" style="background-color: lightblue;">
+                      <h5 class="modal-title" id="exampleModalLabel"
+                          style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size: x-large;">
+                          Login
+                      </h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" style="border: 1px black solid;"
+                          aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body"
+                      style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+                      <div class="form-floating mb-3">
+                          <input type="email" class="form-control" id="txtEmail" placeholder="name@example.com"
+                              required>
+                          <label for="txtEmail">Email address</label>
+                          <span id="errEm"></span>
+                      </div>
+                      <div class="form-floating mb-3">
+                          <input type="password" class="form-control" id="txtPassword" placeholder="Password"
+                              required>
+                          <label for="txtPassword">Password</label>
+                          <span id="errPa"></span>
+                      </div>
+                  </div>
+                  <div class="modal-footer">
+                      <input type="button" id="btnlogin" onclick="submitClick()" class="btn btn-primary" value="Login"
+                          style="margin: auto;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+                      <span id="btns"></span>
+                  </div>
+              </div>
           </div>
-          <div class="modal-body" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
-            <div class="form-floating mb-3">
-              <input type="email" class="form-control" id="txtEmail" placeholder="name@example.com" required>
-              <label for="txtEmail">Email address</label>
-              <span id="errEm"></span>
-            </div>
-            <div class="form-floating mb-3">
-              <input type="password" class="form-control" id="txtPassword" placeholder="Password" required>
-              <label for="txtPassword">Password</label>
-              <span id="errPa"></span>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <input type="button" id="btnlogin" onclick="submitClick()" class="btn btn-primary" value="Login"
-              style="margin: auto;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
-            <span id="btns"></span>
-          </div>
-        </div>
-      </div>
-    </form>
+      </form>
   </div>
   <div class="container mt-3">
-    <div class="row">
-      <div class="col-mt-12">
-        <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-          <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
-              aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
-              aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
-              aria-label="Slide 3"></button>
+      <div class="row">
+          <div class="col-md-12">
+              <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                  <div class="carousel-indicators">
+                      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+                          aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
+                          aria-label="Slide 2"></button>
+                      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
+                          aria-label="Slide 3"></button>
+                  </div>
+                  <div class="carousel-inner">
+                      <div class="carousel-item active" data-bs-interval="10000">
+                          <img src="pics/shutterstock_1419693749.jpg" style="height: 600px;" class="d-block w-100"
+                              alt="...">
+                          <div class="carousel-caption d-none d-md-block">
+                              <h5 style="font-weight: bolder;">Finding Job Made Easy!</h5>
+                              <p
+                                  style="font-weight: bold;font-size: large;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
+                                  A Website Were Jobs Can Be Found In Few Simple Steps</p>
+                          </div>
+                      </div>
+                      <div class="carousel-item" data-bs-interval="2000">
+                          <img src="pics/Outdoor+Work-1920w.jpg" style="height: 600px;" class="d-block w-100"
+                              alt="...">
+                          <div class="carousel-caption d-none d-md-block">
+                          </div>
+                      </div>
+                      <div class="carousel-item">
+                          <img src="pics/hiring-a-painter.jpeg" style="height: 600px;" class="d-block w-100"
+                              alt="...">
+                          <div class="carousel-caption d-none d-md-block">
+                          </div>
+                      </div>
+                  </div>
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
+                      data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
+                      data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                  </button>
+              </div>
           </div>
-          <div class="carousel-inner">
-            <div class="carousel-item active" data-bs-interval="10000">
-              <img src="pics/shutterstock_1419693749.jpg" style="height: 600px;" class="d-block w-100" alt="...">
-              <div class="carousel-caption d-none d-md-block">
-                <h5 style="font-weight: bolder;">Finding Job Made Easy!</h5>
-                <p
-                  style="font-weight: bold;font-size: large;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
-                  A Website Were Jobs Can Be Found In Few Simple Steps</p>
-              </div>
-            </div>
-            <div class="carousel-item" data-bs-interval="2000">
-              <img src="pics/Outdoor+Work-1920w.jpg" style="height: 600px;" class="d-block w-100" alt="...">
-              <div class="carousel-caption d-none d-md-block">
-              </div>
-            </div>
-            <div class="carousel-item">
-              <img src="pics/hiring-a-painter.jpeg" style="height: 600px;" class="d-block w-100" alt="...">
-              <div class="carousel-caption d-none d-md-block">
-              </div>
-            </div>
+      </div>
+  </div>
+  <div class="container">
+      <div class="row mt-2 justify-content-center">
+          <div class="col-12"
+              style="background-color: #659DBD; font-size: xx-large; font-weight:bold; font-family:'Times New Roman', Times, serif;">
+              <center> Our Services </center>
           </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
-            data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
-            data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>
       </div>
-    </div>
-    <div class="row mt-2 justify-content-center" style="height: 50px;">
-      <div class="col-md-12"
-        style="background-color: #659DBD;font-size: xx-large;font-weight:bold;font-family:'Times New Roman', Times, serif;">
-        <center> Our Services </center>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-      <div class="bg-image mt-2" style="background-image: url(pics/ddznAc8UxXSrEVKtQEYUtW.jpg);height:500px;">
-        <div class="row justify-content-center">
-          <div class="col-md-5 mt-5">
+      <div class="row justify-content-center">
+          <div class="col-md-5 col-lg-5 mt-5">
             <div class="card" style="width: 26rem;">
               <img src="pics/WhatsApp Image 2022-02-14 at 3.49.26 PM.jpeg" class="card-img-top" alt="...">
               <div class="card-body">
-                <h6 class="card-title" style="text-align: center;">Help You To Find A Job Anywhere Througout India.</h5>
-                  <p class="card-text" style="text-align: center;">-We Make It Easy For You To List Your Self On Our
-                    Platform.</p>
-                  <p class="card-text" style="text-align: center;">-Simple And Easy Interface Makes Website Effortless
-                    To
-                    Use.</p>
+                <h6 class="card-title text-center">Help You To Find A Job Anywhere.</h6>
+                <p class="card-text text-center">-We Make It Easy For You To List Your Self On Our Platform.</p>
+                <p class="card-text text-center">-Simple And Easy Interface Makes Website Effortless To Use.</p>
               </div>
             </div>
           </div>
-          <div class="col-md-5 mt-5">
+          <div class="col-md-5 col-lg-5 mt-5">
             <div class="card" style="width: 26rem;">
               <img src="pics/depositphotos_103173498-stock-photo-handyman-with-tools.jpg" height="235px"
                 class="card-img-top" alt="...">
               <div class="card-body">
-                <h6 class="card-title" style="text-align: center;">Helps To Find Different Types Of Jobholders Througout
-                  India.</h5>
-                  <p class="card-text" style="text-align: center;">-Finding A Capable Worker For all Your Needs Is Now
-                    Easier Than Ever Before.</p>
-                  <p class="card-text" style="text-align: center;">-Jobs Can Be Posted To Find Proficient Workers.</p>
+                <h6 class="card-title text-center">Helps To Find Different Types Of Jobholders Througout India.</h6>
+                <p class="card-text text-center">-Finding A Capable Worker For all Your Needs Is Now Easier Than Ever Before.</p>
+                <p class="card-text text-center">-Jobs Can Be Posted To Find Proficient Workers.</p>
               </div>
             </div>
           </div>
         </div>
+        
+      <div class="row mt-2 justify-content-center">
+          <div class="col-12"
+              style="background-color:#97CAEF;font-size: xx-large;font-weight:bold;font-family:'Times New Roman', Times, serif;">
+              <a href="mailto:hmann459@gmail.com" style="text-decoration: none;">
+                  <center> Reach Us </center>
+              </a>
+          </div>
       </div>
-    </div>
-    </div>
-    <div class="row mt-2 justify-content-center" style="height: 50px;">
-      <div class="col-md-12"
-        style="background-color:#97CAEF;font-size: xx-large;font-weight:bold;font-family:'Times New Roman', Times, serif;">
-        <center> Reach Us </center>
-      </div>
-    </div>
-    <div class="row mt-2">
-      <div class="col-md-6">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3447.8807337916096!2d74.95013941507348!3d30.211951281821662!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391732a4f07278a9%3A0x4a0d6293513f98ce!2sBanglore%20Computer%20Education%20(C%20C%2B%2B%20Android%20J2EE%20PHP%20Python%20AngularJs%20Spring%20Java%20Training%20Institute)!5e0!3m2!1sen!2sin!4v1644909506409!5m2!1sen!2sin"
-          width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-      </div>
-      <div class="col-md-5" style="margin-left: 110px;">
-        <div class="fb-page " data-href="https://www.facebook.com/Helpinghandpb03-106237988656556/?ref=pages_you_manage"
-          data-tabs="timeline" data-width="700" data-height="300" data-small-header="false"
-          data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
-          <blockquote cite="https://www.facebook.com/Helpinghandpb03-106237988656556/?ref=pages_you_manage"
-            class="fb-xfbml-parse-ignore">
-            <a href="https://www.facebook.com/Helpinghandpb03-106237988656556/?ref=pages_you_manage">Helpinghandpb03</a>
-          </blockquote>
-        </div>
-        <div id="fb-root"></div>
-        <script async defer crossorigin="anonymous"
-          src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v13.0" nonce="lU4BKFx6"></script>
-      </div>
-    </div>
   </div>
-  <br><br><br>
 </body>
 
 </html>
